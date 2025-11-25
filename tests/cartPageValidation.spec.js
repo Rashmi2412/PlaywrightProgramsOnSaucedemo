@@ -1,9 +1,9 @@
 const{test, expect} = require('@playwright/test');
+const{LoginPage} =require('../pages/LoginPage');
 test('Validate the continue shopping functionality by navigating to the cart', async({page}) =>{
- await page.goto ('https://www.saucedemo.com/');
-await page.getByPlaceholder('Username').fill('standard_user');
-await page.getByPlaceholder('Password').fill('secret_sauce');
-await page.getByRole('button', {name: 'Login'}).click();
+ const loginPage = new LoginPage(page);
+ await loginPage.goto();
+ await loginPage.login('standard_user', 'secret_sauce');
 expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
 await page.locator('#add-to-cart-sauce-labs-backpack').click();
 await (page.locator('.shopping_cart_link')).click();

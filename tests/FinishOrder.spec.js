@@ -1,5 +1,6 @@
 const{test, expect} = require('@playwright/test');
 const{LoginPage} = require('../pages/LoginPage');
+const{CustomerDetailPage} = require('../pages/CustomerDetailPage');
 
 test(' verify confirmation text and “Back Home” button.', async({page})=>{
  const loginPage = new LoginPage(page);
@@ -10,10 +11,9 @@ await page.locator('#add-to-cart-sauce-labs-backpack').click();
 await (page.locator('.shopping_cart_link')).click();
 expect(page).toHaveURL('https://www.saucedemo.com/cart.html');
 await page.getByRole('button', {name: 'Checkout'}).click();
-await page.getByPlaceholder('First Name').fill('Test');
-await page.getByPlaceholder('Last Name').fill('Test');
-await page.getByPlaceholder('Zip/Postal Code').fill('123456');
-await page.getByRole('button', {name: 'Continue'}).click();
+const customerDetailPage = new CustomerDetailPage(page); 
+await customerDetailPage.goto();
+await customerDetailPage.submitDetail('testname', 'testlast', '123456')
 await expect(page).toHaveURL('https://www.saucedemo.com/checkout-step-two.html');
 await page.getByRole('button', {name: 'Finish'}).click();
 await expect(page).toHaveURL('https://www.saucedemo.com/checkout-complete.html');

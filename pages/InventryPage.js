@@ -37,4 +37,4 @@ export class InventryPage{
     await this.cartButton.click();
   }
 }
-module.exports = { LoginPage };
+module.exports = { InventryPage };

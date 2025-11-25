@@ -1,4 +1,4 @@
-export default class LoginPage {
+export class LoginPage {
   constructor(page){
     this.page = page;
     this.usernameInput = page.locator('#user-name');

@@ -1,9 +1,9 @@
 const{test,expect} = require('@playwright/test');
+const {LoginPage} = require('../pages/LoginPage');
 test('Product Details Page Navigation', async({page}) =>{
-await page.goto('https://www.saucedemo.com/');
-  await page.getByPlaceholder('Username').fill('standard_user');
-  await page.getByPlaceholder('Password').fill('secret_sauce');
-  await page.getByRole('button', { name: 'Login' }).click();
+ const loginPage = new LoginPage(page);
+  await loginPage.goto();
+  await loginPage.login('standard_user', 'secret_sauce');
   await page.locator('#item_4_title_link').click();
   await expect(page.getByText('Sauce Labs Backpack')).toBeVisible();
   await expect(page.getByText('carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.')).toBeVisible();

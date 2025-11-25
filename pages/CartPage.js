@@ -19,4 +19,4 @@ export class CartPage{
         await this.continueShop.click();
        }
      }
-      module.exports = { LoginPage };
+      module.exports = { CartPage };

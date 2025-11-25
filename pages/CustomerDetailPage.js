@@ -21,6 +21,4 @@ export class CustomerDetailPage {
     await this.CancelBtn.click();
   }
 }
-module.exports = { LoginPage };
-
-
+module.exports = {CustomerDetailPage};

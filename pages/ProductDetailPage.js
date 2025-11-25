@@ -31,4 +31,4 @@ export class ProductDetailPage{
     await this.backButton.click();
   }
 }
-module.exports = { LoginPage };
+module.exports = { ProductDetailPage };

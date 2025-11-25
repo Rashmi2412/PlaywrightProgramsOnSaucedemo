@@ -1,10 +1,10 @@
 const { test, expect } = require('@playwright/test');
+const{LoginPage} = require('../pages/LoginPage');
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('https://www.saucedemo.com/');
-  await page.getByPlaceholder('Username').fill('standard_user');
-  await page.getByPlaceholder('Password').fill('secret_sauce');
-  await page.getByRole('button', { name: 'Login' }).click();
+  const loginPage = new LoginPage(page);
+    await loginPage.goto();
+    await loginPage.login('standard_user', 'secret_sauce');
 });
 
 test('Add item and verify cart count is 1', async ({ page }) => {

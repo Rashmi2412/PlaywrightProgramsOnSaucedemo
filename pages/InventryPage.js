@@ -13,14 +13,11 @@ export class InventryPage{
     async goto() {
     await this.page.goto('https://www.saucedemo.com/inventory.html');
   }
-//to check this product is availabe in the product list we use this method
- async getItemByName(name) {
-  await this.page.locator('.inventory_item').filter({hasText: name,}).click();
-}
-//to add the product to the cart use this method
   async addToCart(productName) {
-  await this.page.getByText(productName).locator('button').click();
-}
+      // Chain the locators directly using this.page
+      await this.page.locator('.inventory_item').filter({ hasText: productName }).getByRole('button', { name: 'Add to cart' })
+          .click();
+    }
 
 //to remove the product by clicking on the remove button
  async removeProduct(productName) {
@@ -34,7 +31,8 @@ export class InventryPage{
 
   //to open the cart by clicking on cart icon
   async openCart() {
-    await this.cartButton.click();
+    await this.cartBadge.click();
+    await expect(page).toHaveURL('https://www.saucedemo.com/cart.html') ;
   }
 }
 module.exports = { InventryPage };

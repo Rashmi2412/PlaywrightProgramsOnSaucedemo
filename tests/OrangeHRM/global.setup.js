@@ -5,7 +5,9 @@ async function globalSetup() {
   console.log("Admin authentication setup started...");
 
   const browser = await chromium.launch();
-  const context = await browser.newContext();
+  const context = await browser.newContext({
+    ignoreHTTPSErrors: true
+  });
   const page = await context.newPage();
 
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');

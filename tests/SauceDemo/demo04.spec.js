@@ -12,10 +12,9 @@ const productCards = page.locator('.inventory_item');
 for (let i = 0; i < await productCards.count(); i++) {
   const card = productCards.nth(i);
 
-  // AND: Find button with class and text
   const addBtn = card.locator('button.btn_inventory', { hasText: 'Add to cart' });
 
-  // OR: Try 'Add to cart' or 'Remove'
+
   const altBtn = card.locator('button').filter({
     hasText: /Add to cart|Remove/
   });

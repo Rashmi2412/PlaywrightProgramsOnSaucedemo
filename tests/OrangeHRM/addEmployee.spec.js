@@ -24,8 +24,8 @@ test('Add employee validation', async ({ page }) => {
     await addEmp.imageUpload.setInputFiles('tests/assets/profile.jpg');
 
     // Valid form
-    await addEmp.firstName.fill("John");
-    await addEmp.lastName.fill("Doe");
+    await addEmp.firstName.fill("test");
+    await addEmp.lastName.fill("testlast");
     await addEmp.saveBtn.click();
 
     await expect(page.getByText("Personal Details")).toBeVisible();

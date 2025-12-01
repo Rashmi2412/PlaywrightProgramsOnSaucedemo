@@ -10,15 +10,15 @@ test('Employee search scenarios', async ({ page }) => {
     await login.login();
     await pim.goToEmployeeList();
 
-    // Valid name
-    await pim.searchEmployee("Linda");
+
+    await pim.searchEmployee("Rahul");
     await expect(pim.tableRows).toHaveCountGreaterThan(0);
 
-    // Partial name
-    await pim.searchEmployee("Li");
+    
+    await pim.searchEmployee("Ra");
     await expect(pim.tableRows).toHaveCountGreaterThan(0);
 
-    // Invalid name
-    await pim.searchEmployee("xyz123");
+    
+    await pim.searchEmployee("Rohit");
     await expect(pim.noRecords).toBeVisible();
 });

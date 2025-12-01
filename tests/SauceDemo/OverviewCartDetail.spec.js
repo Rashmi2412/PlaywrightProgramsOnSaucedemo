@@ -1,9 +1,9 @@
 const{test, expect} = require('@playwright/test');
-const {LoginPage} = require('../pages/LoginPage');
-const {CustomerDetailPage} = require('../pages/CustomerDetailPage');
-const {OverviewPage} = require('../pages/OverviewPage');
-const {InventryPage} = require('../pages/InventryPage');
-const {CartPage} = require('../pages/CartPage');
+const { LoginPage } = ('../pages/SauceDemo/LoginPage');
+const {CustomerDetailPage} = ('../pages/SauceDemoCustomerDetailPage');
+const {OverviewPage} = ('../pages/SauceDemo/OverviewPage');
+const {InventryPage} = ('../pages/SauceDemo/InventryPage');
+const {CartPage} = ('../pages/SauceDemo/CartPage');
 
 test('Validate the Order Overview Details.', async({page})=>{
  const loginPage = new LoginPage(page);

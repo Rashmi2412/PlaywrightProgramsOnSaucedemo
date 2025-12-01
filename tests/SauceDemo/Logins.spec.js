@@ -1,6 +1,6 @@
 
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
+const { LoginPage } = ('../pages/SauceDemo/LoginPage');
 
 test.beforeEach( async({page}) =>{  
     const loginPage = new LoginPage(page);

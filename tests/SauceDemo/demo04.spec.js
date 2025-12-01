@@ -1,5 +1,5 @@
 const {test, expect} = require('@playwright/test');
-const{LoginPage} = require('../pages/LoginPage');
+const { LoginPage } = ('../pages/SauceDemo/LoginPage');
 test ('login with the help of Xpath locator and/or', async({page})=>{
  const loginPage = new LoginPage(page);
   await loginPage.goto();

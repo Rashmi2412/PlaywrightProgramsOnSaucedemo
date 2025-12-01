@@ -1,6 +1,6 @@
 const{test, expect} = require('@playwright/test');
-const{LoginPage} = require('../pages/LoginPage');
-const{CustomerDetailPage} = require('../pages/CustomerDetailPage');
+const { LoginPage } = ('../pages/SauceDemo/LoginPage');
+const{CustomerDetailPage} = ('../pages/SauceDemo/CustomerDetailPage');
 
 test(' verify confirmation text and “Back Home” button.', async({page})=>{
  const loginPage = new LoginPage(page);

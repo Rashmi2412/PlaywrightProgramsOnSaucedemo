@@ -1,5 +1,5 @@
-const{test,expect} = require('../Fixture/myTest');
-test.beforeEach(async ({ loginPage }) => {
+const{test,expect} = ('../Fixture/myTest');
+test(async ({ loginPage }) => {
   await loginPage.goto();
 });
 test('Login with valid credentials', async ({ page, loginPage }) => {

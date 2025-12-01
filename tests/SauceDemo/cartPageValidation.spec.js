@@ -1,5 +1,5 @@
 const{test, expect} = require('@playwright/test');
-const{LoginPage} =require('../pages/LoginPage');
+const { LoginPage } = ('../pages/SauceDemo/LoginPage')
 test('Validate the continue shopping functionality by navigating to the cart', async({page}) =>{
  const loginPage = new LoginPage(page);
  await loginPage.goto();

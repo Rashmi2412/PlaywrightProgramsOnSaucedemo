@@ -1,5 +1,5 @@
 const{test, expect} = require('@playwright/test');
-const {LoginPage} = require('../pages/Saucedemo/LoginPage');
+const { LoginPage } = ('../pages/SauceDemo/LoginPage');
 test('Validate the checkout form fields and error handling on empty submission.', async({page})=>{
  const loginPage = new LoginPage(page);
     await loginPage.goto();

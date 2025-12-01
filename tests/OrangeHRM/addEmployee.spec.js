@@ -6,7 +6,7 @@ test('Add employee validation', async ({ page }) => {
     const login = new LoginPage(page);
     const addEmp = new AddEmployeePage(page);
 
-    await page.goto('/web/index.php/auth/login');
+    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
     await login.login();
     await addEmp.navigate();
 
@@ -15,8 +15,8 @@ test('Add employee validation', async ({ page }) => {
     await expect(addEmp.errorMessages.nth(0)).toBeVisible();
 
     // Invalid characters
-    await addEmp.firstName.fill("123");
-    await addEmp.lastName.fill("@@@");
+    await addEmp.firstName.fill("testFirst");
+    await addEmp.lastName.fill("testLast");
     await addEmp.saveBtn.click();
     await expect(addEmp.errorMessages.nth(0)).toBeVisible();
 
@@ -24,8 +24,8 @@ test('Add employee validation', async ({ page }) => {
     await addEmp.imageUpload.setInputFiles('tests/assets/profile.jpg');
 
     // Valid form
-    await addEmp.firstName.fill("test");
-    await addEmp.lastName.fill("testlast");
+    await addEmp.firstName.fill("Admin");
+    await addEmp.lastName.fill("Last");
     await addEmp.saveBtn.click();
 
     await expect(page.getByText("Personal Details")).toBeVisible();

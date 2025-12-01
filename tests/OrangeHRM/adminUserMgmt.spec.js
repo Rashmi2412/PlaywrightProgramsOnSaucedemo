@@ -6,7 +6,7 @@ test('Admin user management validation', async ({ page }) => {
     const login = new LoginPage(page);
     const admin = new AdminPage(page);
 
-    await page.goto('/web/index.php/auth/login');
+    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
     await login.login();
     await admin.navigate();
 

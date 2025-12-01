@@ -6,7 +6,7 @@ test('Employee search scenarios', async ({ page }) => {
     const login = new LoginPage(page);
     const pim = new PIMPage(page);
 
-    await page.goto('/web/index.php/auth/login');
+    await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
     await login.login();
     await pim.goToEmployeeList();
 
